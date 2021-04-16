@@ -1,0 +1,58 @@
+:root {
+  --gamezone-width: 900px;
+  --gamezone-height: 600px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gamezone {
+  width: var(--gamezone-width);
+  height: var(--gamezone-height);
+  background: lightgrey;
+  background: url(./assets/brick.jpg);
+  background-size: 600px;
+  border-right: 8px solid gold;
+  border-left: 2px solid black;
+  display: grid;
+}
+
+.browser {
+  height: 64px;
+  position: relative;
+  transform: translate(var(--x), var(--y));
+  transition: transform 0.05s linear;
+}
+
+.winner {
+  filter:
+    drop-shadow(0 0 2px yellow)
+    drop-shadow(0 0 4px gold)
+    drop-shadow(0 0 6px orange);
+  animation: jump 0.5s alternate infinite;
+}
+
+.draw {
+  transform: translate(var(--x), var(--y)) rotate(70deg);
+}
+
+.loser {
+  filter: grayscale(1);
+}
+
+button.start {
+  margin-top: 2em;
+}
+
+@keyframes jump {
+  0% {
+    transform: translate(var(--x), 5px);
+  }
+
+  100% {
+    transform: translate(var(--x), -5px);
+  }
+}
